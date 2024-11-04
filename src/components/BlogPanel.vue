@@ -14,6 +14,7 @@
         <div id="panel_bottom_target"></div>
       </div>
     </div>
+    <Tools></Tools>
   </div>
 </template>
 
@@ -26,6 +27,7 @@
   import LoadingBar from "./common/LoadingBar";
   import BlogBottom from "./bottom/BlogBottom";
   import BlogFullPage from "./full/BlogFullPage";
+  import Tools from "./common/Tools"
 
   export default {
     name: "BlogPanel",
@@ -46,7 +48,7 @@
     },
     components: {
       BlogFullPage,
-      BlogBottom, LoadingBar, LoadingBody, RouteBody, ArticlesBody, PanelAside, BlogHeadBar},
+      BlogBottom, LoadingBar, LoadingBody, RouteBody, ArticlesBody, PanelAside, BlogHeadBar,Tools},
     beforeRouteUpdate: function (to, from, next) {
       this.$bus.emit("fullLoadingOpen", next);
     },

@@ -6,6 +6,7 @@ import router from './router'
 import VueBus from 'vue-bus';
 import './assets/icon/iconfont.css'
 import "./assets/css/reset.css"
+import store from './store'
 
 
 import hljs from './assets/lib/highlight/highlight.index'
@@ -15,7 +16,7 @@ import blogKit from "./utils/BlogKit";
 import blogShade from "./utils/BlogShade";
 BlogInfoSet().then(()=>{
   Vue.config.productionTip = false
-  Vue.use(VueBus);
+  Vue.use(VueBus).use(store);
   Vue.prototype.VUE_CTX = process.env.VUE_CTX;
   Vue.directive('highlight', function (el) {
     let pres = el.querySelectorAll('pre');
@@ -37,6 +38,7 @@ BlogInfoSet().then(()=>{
   /* eslint-disable no-new */
   new Vue({
     el: '#app',
+    store,
     router,
     components: {App},
     template: '<App/>',

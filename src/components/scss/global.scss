@@ -94,7 +94,7 @@ $commentFocusColor: rgb(184, 232, 247);
 
 /*作品集内部宽度*/
 @mixin worksBodyWidth {
-  @include deve-width(100%, 100%, 100%, 660px, 71%,74%);
+  @include deve-width(100%, 100%, 100%, 660px, 71%,70%);
 }
 
 /*文章简介图片宽度*/

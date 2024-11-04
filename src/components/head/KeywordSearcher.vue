@@ -92,7 +92,7 @@
           cursor: pointer;
           .-search{
             display: inline-block;
-            padding-top: 9px;
+            padding-top: 7px;
           }
          }
         .search-btn:hover{

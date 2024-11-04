@@ -42,12 +42,21 @@
 <style lang="scss">
   #route_body {
     position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+    border-spacing: 0;
+    table-layout: fixed;
     .inner-route-body {
-      display: inline-block;
-      width:100%;
-      vertical-align: top;
-      position: relative;
-      @include worksBodyWidth();
+      // display: inline-block;
+      //width:100%;
+      // vertical-align: top;
+      // position: relative;
+      // @include worksBodyWidth();
+      display: table-cell;
+    float: none;
+    height: 100%;
+    vertical-align: top;
     }
     .pub-aside {
       @include deve4() {
@@ -56,13 +65,17 @@
       @include switchHeadBar(){
         display: none;
       }
-      display:inline-block;
-      width: 248px;
-      vertical-align: top;
-      position: relative;
-      border-left: 1px solid #e2e8ea;
-      box-sizing: border-box;
-      
+      // display:inline-block;
+      // width: 248px;
+      // vertical-align: top;
+      // position: relative;
+      // border-left: 1px solid #e2e8ea;
+      // box-sizing: border-box;
+      display: table-cell;
+    float: none;
+    width: 240px;
+    height: 100%;
+    vertical-align: top;
     }
   }
 </style>

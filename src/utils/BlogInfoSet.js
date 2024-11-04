@@ -11,7 +11,8 @@ export default ()=>{
     }
     BlogContext.setBlogAccAndId(window.currentBlogApp,window.currentBlogId);
     BlogApi.loadAuthorBlogInfo().then((res)=>{
-      BlogContext.setGidAndName(res.guid,res.username);
+      BlogContext.setGidAndName("c74cdce3-551f-4ab1-dbb7-08d9c527a5cc","newjersey");
+      //BlogContext.setGidAndName(res.guid,res.username);
       BlogApi.loadDefaultCategoryList(0).then((obj)=>{
         if (obj.list.length > 0) {
           BlogContext.setPid(obj.list[0].pageId);

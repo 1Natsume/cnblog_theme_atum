@@ -1,7 +1,7 @@
 <template>
   <div id="avatar_area" class="panel-avatar-dec">
     <div class="avatar-area-wrap" @click="foucsMe">
-      <router-link :to="VUE_CTX+'/author'" :src="avatarObj.avatar" :onerror="'this.src=\''+avatarObj.face+'\';this.onerror=null;'"></router-link>
+      <router-link :to="VUE_CTX+'/author'"  :onerror="'this.src=\''+avatarObj.face+'\';this.onerror=null;'"><img :src="avatarObj.avatar"/></router-link>
       <div class="panel-avatar-sign">
         <div class="name-wrap panel-aside-color">
           <span>{{avatarName}}</span>
