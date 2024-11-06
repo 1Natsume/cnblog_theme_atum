@@ -6,6 +6,7 @@ import router from './router'
 import VueBus from 'vue-bus';
 import './assets/icon/iconfont.css'
 import "./assets/css/reset.css"
+import "./assets/fontawesome/css/fontawesome.min.css";
 import store from './store'
 
 
@@ -14,6 +15,9 @@ import BlogInfoSet from "./utils/BlogInfoSet";
 import blogUtils from "./utils/BlogUtils";
 import blogKit from "./utils/BlogKit";
 import blogShade from "./utils/BlogShade";
+import $ from 'jquery'
+window.jQuery = $;
+window.$ = $;
 BlogInfoSet().then(()=>{
   Vue.config.productionTip = false
   Vue.use(VueBus).use(store);

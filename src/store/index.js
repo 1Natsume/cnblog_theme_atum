@@ -4,13 +4,14 @@ Vue.use(Vuex);
 
 function loadStateConfig() {
   try {
-    //localStorage.clear();
+    localStorage.clear();
     const serializedState = localStorage.getItem("config");
     if (serializedState) {
       return JSON.parse(serializedState);
     } else {
       const config = {
-        theme: "style0",
+        theme: "Sakura",
+        bg:["https://api.2heng.xin/cover/"]
       };
       localStorage.setItem("config", JSON.stringify(config));
       return config;
@@ -31,10 +32,20 @@ function loadStateThemes() {
         {
           id: 1,
           theme: "style1",
+          icon:"icon iconfont link",
+          dec:""
         },
         {
           id: 2,
           theme: "style0",
+          icon:"icon iconfont link",
+          dec:""
+        },
+        {
+          id: 3,
+          theme: "Sakura",
+          icon:"icon iconfont link",
+          dec:"Sakura"
         },
       ];
       localStorage.setItem("themes", JSON.stringify(themes));

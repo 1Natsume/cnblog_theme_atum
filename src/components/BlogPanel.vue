@@ -1,6 +1,7 @@
 <template>
   <div id="blog_panel">
     <blog-full-page></blog-full-page>
+    <Headertop></Headertop>
     <blog-head-bar class="blog-head-bar"></blog-head-bar>
     <div class="main-panel">
       <panel-aside id="panel_aside" class="panel-aside" :class="{'blog-aside-show':asideIsShow,'blog-aside-hide':!asideIsShow}"></panel-aside>
@@ -28,6 +29,7 @@
   import BlogBottom from "./bottom/BlogBottom";
   import BlogFullPage from "./full/BlogFullPage";
   import Tools from "./common/Tools"
+import Headertop from "./common/headertop.vue";
 
   export default {
     name: "BlogPanel",
@@ -47,7 +49,7 @@
     created: function () {
     },
     components: {
-      BlogFullPage,
+      BlogFullPage,Headertop,
       BlogBottom, LoadingBar, LoadingBody, RouteBody, ArticlesBody, PanelAside, BlogHeadBar,Tools},
     beforeRouteUpdate: function (to, from, next) {
       this.$bus.emit("fullLoadingOpen", next);
@@ -97,113 +99,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  #blog_panel {
-    display: inline-block;
-    @include panelWidth();
-    height: 100%;
-    text-align: left;
-    font-size: 0px;
-    position: relative;
-    box-shadow: 0 0 4px 3px rgba(0,0,0,.05);
-    opacity: .98;
-    .blog-head-bar {
-      height: $headHeight;
-      z-index: 10;
-    }
-
-    .main-panel {
-      height: calc(100% - #{$headHeight});
-      position: relative;
-      left: 0;
-
-
-      @include switchHeadBar(){
-        .blog-aside-show {
-          @include showAside();
-        }
-        .blog-aside-hide {
-          @include hideAside();
-        }
-      }
-      .panel-aside-shape{
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 3;
-        background-color: rgba(0,0,0,.3);
-        display: none;
-        @include switchHeadBar(){
-          display: inline-block;
-        }
-      }
-      .panel-aside-shape-hide{
-        display: none;
-      }
-      .panel-aside {
-        position: absolute;
-        left: 0;
-        z-index: 4;
-        transition: all 0.3s ease-out 0.1s;
-        width: 230px;
-        height: 100%;
-        display: inline-block;
-        vertical-align: top;
-        box-shadow: .8px .8px .8px rgba(0, 0, 0, .2);
-        box-sizing: border-box;
-      }
-
-
-      .loading-bar-clz {
-        width: 100%;
-        position: absolute;
-        vertical-align: top;
-        z-index: 2;
-        width: calc(100% - 230px);
-        left: 230px;
-        @include switchHeadBar(){
-          width: 100%;
-          left: 0;
-        }
-      }
-
-      .loading-body-clz {
-        transition: all .25s ease-in-out 0s;
-        position: absolute;
-        vertical-align: top;
-        z-index: 2;
-        width: calc(100% - 230px);
-        left: 230px;
-        @include switchHeadBar(){
-          width: 100%;
-          left: 0;
-        }
-      }
-
-      .route-body {
-        background-color: #F6F8F9;
-        left: 230px;
-        width: calc(100% - 230px);
-        @include switchHeadBar(){
-          left: 0px;
-          width: 100%;
-        }
-        position: absolute;
-        top: 0;
-
-        overflow-y: scroll;
-        display: inline-block;
-        height: 100%;
-        overflow-x: hidden;
-        vertical-align: top;
-        .router-view-wrap{
-          min-height: calc(100% - 40px);
-        }
-      }
-    }
-  }
-</style>

@@ -7,8 +7,8 @@
     <div class="skin-menu no-select">
       <div class="theme-controls row-container">
         <ul class="menu-list">
-          <li id="white-bg" v-for="(item, index) in themes" :key="index">
-            <a href="javascript:void(0)" @click="switchTheme(item)">{{ item.theme }} <i class="fa fa-television"
+          <li v-for="(item, index) in themes" :key="index">
+            <a href="javascript:void(0)" @click="switchTheme(item)"><i :class="item.icon"
                 aria-hidden="true"></i></a>
           </li>
         </ul>
@@ -100,6 +100,7 @@ export default {
 .skin-menu .row-container .menu-list li {
   display: inline-block;
   margin: 6px;
+  height:36px;
   line-height: 36px;
   width: 36px;
   background-color: #f5f5f5;
@@ -110,6 +111,7 @@ export default {
 .skin-menu .row-container .menu-list li a {
   font-size: 12px;
   text-decoration-line: none;
+  color: black;
 }
 
 .skin-menu.show {
