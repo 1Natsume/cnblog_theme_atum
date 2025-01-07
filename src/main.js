@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App'
 import router from './router'
 import VueBus from 'vue-bus';
@@ -15,10 +16,7 @@ import BlogInfoSet from "./utils/BlogInfoSet";
 import blogUtils from "./utils/BlogUtils";
 import blogKit from "./utils/BlogKit";
 import blogShade from "./utils/BlogShade";
-import $ from 'jquery'
-window.jQuery = $;
-window.$ = $;
-BlogInfoSet().then(()=>{
+BlogInfoSet().then(() => {
   Vue.config.productionTip = false
   Vue.use(VueBus).use(store);
   Vue.prototype.VUE_CTX = process.env.VUE_CTX;
@@ -39,24 +37,26 @@ BlogInfoSet().then(()=>{
   })
 
 
+
   /* eslint-disable no-new */
-  new Vue({
-    el: '#app',
-    store,
-    router,
-    components: {App},
-    template: '<App/>',
-    beforeCreate: function () {
-      blogKit.initBaiduCount();
-      router.beforeEach((to, from, next) => {
-        blogKit.pushBaiduCount(to.fullPath);
-        next();
-      });
-    },
-    mounted: function () {
-      setTimeout(() => {
-        blogShade.close();
-      }, 1000);
-    }
-  })
-});
+    new Vue({
+      el: '#app',
+      store,
+      router,
+      components: {App},
+      template: '<App/>',
+      beforeCreate: function () {
+        blogKit.initBaiduCount();
+        router.beforeEach((to, from, next) => {
+          blogKit.pushBaiduCount(to.fullPath);
+          next();
+        });
+      },
+      mounted: function () {
+        setTimeout(() => {
+          blogShade.close();
+        }, 1000);
+      }
+    })
+  });
+  // createApp(App).mount('#app')

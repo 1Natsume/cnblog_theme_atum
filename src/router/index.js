@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import blogRedirect from "../utils/BlogRedirect";
 import BlogPanel from "../components/BlogPanel";
+import Admin from "../components/Admin";
 import CategoryBody from "../components/body/CategoryBody";
 import ArticleBody from "../components/body/article/ArticleBody";
 import SubjectBody from "../components/body/SubjectBody";
@@ -42,6 +43,11 @@ export default new Router({
           component: BlogAuthorBody
         }
         ]
+    },
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: Admin,
     },
     {
       path: '*',

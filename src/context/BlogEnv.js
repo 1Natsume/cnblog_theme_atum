@@ -33,22 +33,17 @@ let qq = "592571519";
 let email = "592571519@qq.com"
 let github = "cjunn";
 let defHeadImg= `https://img2.baidu.com/it/u=1129333932,2974296147&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500`;
-let themeStyle="style0";
 let feelingBlogId=13393903;
 let mainExtNav = [
   {title: "首页",url:"/subject/category/default.html",icon: "home"},
   {title: "反馈", url: '/c/subject/p/12494785.html', icon: "bug"},
-  {title: "赞赏", url: '/c/subject/p/12495086.html', icon: "gift"}
+  {title: "赞赏", url: '/c/subject/p/12495086.html', icon: "gift"},
+  {title: "后台", url: '/admin', icon: "gift"}
 ];
 
-let adDisplay="<div class=\"blog-cloud-ad-item\">\n" +
-  "            <img src=\"https://img.alicdn.com/tfs/TB1nkoQDlv0gK0jSZKbXXbK2FXa-440-240.jpg\"\n" +
-  "                 onclick=\"window.open('https://www.aliyun.com/activity/daily/cloud?userCode=njf7bpon')\">\n" +
-  "          </div>\n" +
-  "          <div class=\"blog-cloud-ad-item\">\n" +
-  "            <img src=\"https://upload-dianshi-1255598498.file.myqcloud.com/345-60759ea0b2a21d3d1c764570c2a9f2960bfdf128.200.jpg\"\n" +
-  "                 onclick=\"window.open('https://url.cn/OLi4lNzq')\">\n" +
-  "          </div>";
+let adDisplay="";
+
+
 
 
 let setBlogAccAndId=(acc,id)=>{
@@ -92,5 +87,5 @@ export default {
   panelItemPic,
   panelRightImgPic,
   musicSignImg,headBackImg,defHeadImg,adDisplay,
-  feelingBlogId,themeStyle,qq,github,email,blogUsedLinks,blogFriendList,feelingBlogId,blogSign ,aboutmeHtml,avatarSign,ingTitle,bigBackImg
+  feelingBlogId,qq,github,email,blogUsedLinks,blogFriendList,feelingBlogId,blogSign ,aboutmeHtml,avatarSign,ingTitle,bigBackImg
 }

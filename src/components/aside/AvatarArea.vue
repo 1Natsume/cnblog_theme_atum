@@ -25,6 +25,7 @@
     components: {},
     created: function () {
       blogApi.loadAuthorHeadImg().then((res)=>{
+        
         this.avatarObj=res;
       });
     },

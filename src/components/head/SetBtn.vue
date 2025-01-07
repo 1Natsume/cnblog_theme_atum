@@ -15,7 +15,10 @@
         name: "SetBtn",
         methods:{
           openManagerView:()=>{
-            window.open(BlogContext.manPage)
+            let res = this.$router.resolve({
+              path:'/admin'
+            })
+            window.open(res.href,'_blank')
           }
         }
     }

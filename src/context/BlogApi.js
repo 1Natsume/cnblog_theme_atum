@@ -2,6 +2,7 @@
 let dataCache = {};
 /*進行池*/
 let promiseCache = {};
+
 /*清除无关标签*/
 let removeUselessTag = (response) => {
   response = response.replace(/<link.*?(\/)*?>/ig, '');
@@ -39,7 +40,7 @@ let remoteCallByHtml = function ($,url, parser) {
         tmpDom.remove();
       } catch (e) {
         //console.log(e);
-        console.log("解析地址:" + url + "出现异常,请联系作者");
+        console.log("解析地址:" + url + " 出现异常,请联系作者");
         resolve(undefined);
       }
     });
@@ -74,6 +75,7 @@ let remoteCallByPost = function ($,url,param,parser){
   promiseCache[cacheKey] = rePromise;
   return rePromise;
 }
+
 let api = {
   apiRemoteCallByHtml:remoteCallByHtml,
   apiRemoteCallByPost:remoteCallByPost,
@@ -125,6 +127,8 @@ let api = {
         avatar:src.replace("face","avatar")
       }
     });
+    
+    return remoteCallByPost($,url,param)
   },
   //加载标签云
   apiLoadCloudLabel:($,param,url)=>{
