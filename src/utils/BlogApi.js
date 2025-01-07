@@ -447,6 +447,11 @@ let blogApi = {
       });
     });
   },
+  loadBlogs:()=>{
+    return request.get('/api/blogs/newjersey').then(res => {
+      console.log(res)
+    })
+  }
 
   /*博客园API*/
 };
