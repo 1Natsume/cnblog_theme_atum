@@ -1,10 +1,9 @@
 import axios from "axios";
-let apibaseurl = 'https://api.cnblogs.com/api'
 let access_token = 'AEB65EDA8CA9D962C1379033EF864662A06E3E7E5504CFB7C685B8EFD76FBEB2'
 // 创建一个 axios 实例
 
 const service = axios.create({
-  baseURL: apibaseurl, // 基础 URL，可以通过环境变量设置
+  //baseURL: apibaseurl, // 基础 URL，可以通过环境变量设置
 
   timeout: 5000, // 请求超时时间
 });
@@ -18,7 +17,6 @@ service.interceptors.request.use(
     // 比如在请求头中添加 token
    
     config.headers["Authorization"] = "Bearer " + access_token;
-
     return config;
   },
 

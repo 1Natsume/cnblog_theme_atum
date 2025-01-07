@@ -10,7 +10,7 @@ function loadStateConfig() {
       return JSON.parse(serializedState);
     } else {
       const config = {
-        theme: "Sakura",
+        theme: "style0",
         bg:["https://api.2heng.xin/cover/"]
       };
       localStorage.setItem("config", JSON.stringify(config));

@@ -1,4 +1,5 @@
 "use strict";
+//const { context } = require("build/webpack.base.conf");
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
@@ -37,11 +38,18 @@ module.exports = {
   dev: {
     assetsSubDirectory: "static",
     assetsPublicPath: "/",
-    proxyTable: {
-      "/cjunn": {
-        target: "http://127.0.0.1:9090",
-      },
-    },
+    proxyTable: [
+      // "/cjunn": {
+      //   target: "http://127.0.0.1:9090",
+      // },
+      {
+        context:['/api'],
+        target: 'https://api.cnblogs.com/api',
+        secure:true ,//接受对方是https的接口
+        changeOrigin: true,
+        pathRewrite: { '^/api': '' },
+      }
+    ],
 
     host: "localhost", // can be overwritten by process.env.HOST
     port: 8080,

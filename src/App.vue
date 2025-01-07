@@ -9,7 +9,7 @@
 <script>
 import BlogContext from "./context/BlogContext";
 import "./assets/css/theme/style0.scss";
-import "./assets/css/theme/style1.scss";
+//import "./assets/css/theme/style1.scss";
 import { mapState } from 'vuex'; 
 export default {
   name: "App",
