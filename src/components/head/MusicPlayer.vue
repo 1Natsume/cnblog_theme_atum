@@ -56,8 +56,7 @@
       this.audio.onended = this.musicEnded;
       blogApi.loadMusicList().then((list) => {
         this.playList = list;
-        this.musicState();
-        this.musicState();
+        //this.musicState();
       });
       blogUtils.registerUnClick("#music_player", () => {
         this.showPlay = false;

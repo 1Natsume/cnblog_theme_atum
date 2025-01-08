@@ -2,9 +2,9 @@ import BlogContext from "../context/BlogContext";
 let matchUrlType = (pathname) => {
   let regexps=[
     /*请求打开文章*/
-    new RegExp("^/" + BlogContext.blogAcc + "/p/(.+)?\.html"),// eslint-disable-line
+    new RegExp("^/" + BlogContext.blogAcc + "/p/(.+)?"),// eslint-disable-line
     /*请求打开类别*/
-    new RegExp("^/" + BlogContext.blogAcc + "/category/(.+)?\.html")// eslint-disable-line
+    new RegExp("^/" + BlogContext.blogAcc + "/category/(.+)?")// eslint-disable-line
   ];
   for(let i in regexps){
     if(regexps[i].test(pathname)){
@@ -16,7 +16,7 @@ export default {
   redirect: function (e) {
     let pathname = window.location.pathname;
     let relPath = matchUrlType(pathname);
-    relPath = relPath ? relPath : '/subject/category/default.html';
+    relPath = relPath ? relPath : '/subject/category/default';
     return {
       path: process.env.VUE_CTX + relPath
     };

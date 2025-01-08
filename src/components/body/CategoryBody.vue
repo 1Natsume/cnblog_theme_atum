@@ -9,25 +9,26 @@
       <div class="wrapper-md" id="post-panel">
         <div class="article-list-wrap blog-post">
           <div v-for="(item, key) in arrList" :key="key" class="panel item-wrap">
-            <div class="index-post-img"><a :href="item.url">
+            <!-- <div class="index-post-img"><router-link :to="item.url">
                 <div class="item-thumb lazy"
-                  style="background-image: url(https://moe.best/usr/uploads/2023/07/2045095716.png)">123</div>
-              </a> </div>
+                  style="background-image: url(https://moe.best/usr/uploads/2023/07/2045095716.png)"></div>
+              </router-link>
+            </div> -->
             <div class="complex-item post-meta wrapper-lg p-b-none" v-if="item.desc">
               <!-- <div class="item-img">
                 <div class="div-img" :style="getRandomImgClz()"></div>
                 <img :src="item.img" v-if="item.img">
               </div> -->
               <h2 class="m-t-none index-post-title">
-                <a :href="item.url">{{ item.title }}</a>
+                <router-link :to="item.url">{{ item.title }}</router-link>
               </h2>
-              <!-- <p class="summary l-h-2x text-muted">{{ item.desc }}</p>
+              <p class="summary l-h-2x text-muted">{{ item.desc }}</p>
               <div class="line line-lg b-b b-light"></div>
               <div class="text-muted post-item-foot-icon">
                 <i class="fontello fontello-clock-o text-muted"></i><span>&nbsp;{{ item.time }}</span>
                 <i class="iconfont icon-comments-o text-muted"></i>&nbsp;{{ item.commentNum }} 条评论
                 <i class="fontello fontello-eye text-muted"></i>&nbsp;{{ item.readNum }}<span class="hidden-xs"> 次浏览</span>
-              </div> -->
+              </div>
               <!-- <div class="item-body">
                 <div class="item-title sing-ellipsis panel-item-title-color" :title="item.title">{{ item.title }}</div>
                 <div class="item-desc three-ellipsis" :title="item.desc">{{ item.desc }}</div>
@@ -74,6 +75,7 @@ import blogKit from "../../utils/BlogKit";
 import blogApi from "../../utils/BlogApi";
 import BlogContext from "../../context/BlogContext";
 import PageLine from "../common/PageLine";
+import router from "@/router";
 
 let imgList = Array.from(Array(BlogContext.panelItemPic.length - 1), (v, k) => k).sort(() => Math.random() >= 0.5 ? 1 : -1).map((item) => 1 + item);
 

@@ -298,11 +298,16 @@ let blogApi = {
     );
   },
   loadArticle: (articleId) => {
-    return BlogContext.apiLoadArticle(
-      $,
-      { blogAcc: BlogContext.blogAcc, articleId: articleId },
-      "/" + BlogContext.blogAcc + "/p/" + articleId + ".html"
-    );
+    // return BlogContext.apiLoadArticle(
+    //   $,
+    //   { blogAcc: BlogContext.blogAcc, articleId: articleId },
+    //   "/" + BlogContext.blogAcc + "/p/" + articleId + ".html"
+    // );
+    return request.get('/api/blogposts/'+articleId+'/body').then(res=>{
+      return{
+        body:res
+      }
+    })
   },
   loadTagList: (tagId, pageNum) => {
     return BlogContext.apiLoadTagList(
@@ -423,29 +428,55 @@ let blogApi = {
     });
   },
   loadMyCommentList: (articleId, page) => {
-    return new Promise((resolve, reject) => {
-      let mySize = BlogContext.myCommentSize;
-      let blogSize = BlogContext.blogCommentSize;
-      blogApi.loadCommentCount(articleId).then((r1) => {
-        let maxPage = Math.ceil(r1 / mySize);
-        page = page == -1 ? maxPage : page;
-        let myScale = blogSize / mySize;
-        let blogPage = Math.ceil(page / myScale);
-        let blogSideLeft = parseInt((page - 1) % myScale) * 10;
-        let blogSideRight = parseInt(page % myScale) * 10;
-        if (blogSideLeft > blogSideRight) {
-          blogSideRight = blogSideLeft + 10;
-        }
-        blogApi.loadCommentList(articleId, blogPage).then((r2) => {
-          resolve({
-            list: r2.slice(blogSideLeft, blogSideRight),
-            count: maxPage,
-            size: r1,
-            current: page,
-          });
-        });
+    let list = [];
+    // return new Promise((resolve, reject) => {
+    //   let mySize = BlogContext.myCommentSize;
+    //   let blogSize = BlogContext.blogCommentSize;
+    //   blogApi.loadCommentCount(articleId).then((r1) => {
+    //     let maxPage = Math.ceil(r1 / mySize);
+    //     page = page == -1 ? maxPage : page;
+    //     let myScale = blogSize / mySize;
+    //     let blogPage = Math.ceil(page / myScale);
+    //     let blogSideLeft = parseInt((page - 1) % myScale) * 10;
+    //     let blogSideRight = parseInt(page % myScale) * 10;
+    //     if (blogSideLeft > blogSideRight) {
+    //       blogSideRight = blogSideLeft + 10;
+    //     }
+    //     blogApi.loadCommentList(articleId, blogPage).then((r2) => {
+    //       resolve({
+    //         list: r2.slice(blogSideLeft, blogSideRight),
+    //         count: maxPage,
+    //         size: r1,
+    //         current: page,
+    //       });
+    //     });
+    //   });
+    // });
+    return request.get('/api/blogs/newjersey/posts/'+articleId+'/comments?pageIndex='+page+'&pageSize=10').then(res =>{
+      
+      res.forEach(item=>{
+        let obj = {};
+        obj.commentId = item['Id']
+        // obj.level = $(v).find(".layer").html();
+        // obj.label = $(v).find(".louzhu").html() || "";
+        obj.date = item['DateAdded'];
+        obj.author = item['Author'];
+        obj.authorUrl = item['AuthorUrl'];
+        obj.desc = item['Author'];
+        obj.digg = undefined;
+        obj.burry = undefined;
+        obj.avatarUrl = item['FaceUrl'];
+        obj.avatarHdUrl=item['FaceUrl'];
+        // obj.replayBtn=$(v).find("[onclick^='return ReplyComment']").length>0;
+        // obj.quoteBtn=$(v).find("[onclick^='return QuoteComment']").length>0;
+        // obj.delBtn=$(v).find("[onclick^='return DelComment']").length>0;
+        // obj.updateBtn=$(v).find("[onclick^='return GetCommentBody']").length>0;
+        list.push(obj)
       });
-    });
+      return{
+        list
+      }
+    })
   },
   loadBlogs:()=>{
     return request.get('/api/blogs/newjersey').then(res => {

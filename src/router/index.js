@@ -14,6 +14,7 @@ Router.prototype.push = function push(location) {
 }
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',
@@ -31,10 +32,10 @@ export default new Router({
           component: SubjectBody,
           redirect: "/",
           children:[
-            {path: 'category/:categoryId' + '.html', component: CategoryBody},
-            {path: 'archive/:archiveYear/:archiveMonth' + '.html', component: CategoryBody},
+            {path: 'category/:categoryId', component: CategoryBody},
+            {path: 'archive/:archiveYear/:archiveMonth', component: CategoryBody},
             {path: 'tag/:tagId/', component: CategoryBody},
-            {path: 'p/:articleId'+'.html',component: ArticleBody}
+            {path: 'p/:articleId',component: ArticleBody}
           ]
         },
         {

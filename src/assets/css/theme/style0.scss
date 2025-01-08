@@ -271,7 +271,8 @@
   transition: all .2s;
   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2) !important;
 }
-#post-panel>div.blog-post>.panel, #post-panel>div.blog-post>.panel-small, .wrapper-md>#comments, .wrapper-md>.breadcrumb {
+#post-panel>div.blog-post>.panel, #post-panel>div.blog-post>.panel-small,
+ .wrapper-md>#comments, .wrapper-md>.breadcrumb {
   background-color: rgba(255, 255, 255, .9);
 }
 .blog-post>.panel, .blog-post>.panel-small {
@@ -303,7 +304,8 @@
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-.blog-post>.panel .index-post-img .item-thumb, .panel-small .index-post-img-small .item-thumb-small, .index-post-title a {
+.blog-post>.panel .index-post-img .item-thumb, 
+.panel-small .index-post-img-small .item-thumb-small, .index-post-title a {
   transition: all .2s;
 }
 @media (max-width: 1199px) {
@@ -384,9 +386,9 @@ a {
 
   #post-panel>div.blog-post>.panel .post-meta {
       position: relative;
-      margin-top: -300px;
+      //margin-top: -300px;
       height: 300px;
-      padding-top: 133px !important;
+      //padding-top: 133px !important;
       padding-bottom: 0 !important;
       background-color: rgba(0, 0, 0, .3);
       color: #fff !important;
