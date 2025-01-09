@@ -30,17 +30,17 @@
         blogUtils.registerUnClick("#beer_list", () => {
           this.showPop = false;
         });
-        blogApi.loadBlogTalkShort().then((res)=>{
-          res.each((i,item)=>{
-            this.beerList.push({
-              key:item.desc,
-              val:item
-            })
-          });
-         /* this.beerList=res.map((item)=>{
-            return {key:item.desc,val:item}
-          });*/
-        });
+        // blogApi.loadBlogTalkShort().then((res)=>{
+        //   res.each((i,item)=>{
+        //     this.beerList.push({
+        //       key:item.desc,
+        //       val:item
+        //     })
+        //   });
+        //  /* this.beerList=res.map((item)=>{
+        //     return {key:item.desc,val:item}
+        //   });*/
+        // });
       }
     }
 </script>

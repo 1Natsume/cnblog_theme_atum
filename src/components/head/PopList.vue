@@ -7,7 +7,7 @@
           </div>
           <div v-for="(item,id) in popList" class="pop-list-item" @click="clickItem(item,id)">
             <div class="left-flag" v-if="flag&&flagIndex==id"> </div>
-            <div class="item-key sing-ellipsis" :class="item.key2?'item-key1':''">{{item.key}}</div>
+            <div class="item-key sing-ellipsis" :class="item.key2?'item-key1':''">{{item.Title}}</div>
             <div class="item-key sing-ellipsis item-key2" v-if="item.key2">{{item.key2}}</div>
           </div>
         </div>

@@ -48,6 +48,13 @@ module.exports = {
         secure:true ,//接受对方是https的接口
         changeOrigin: true,
         pathRewrite: { '^/api': '' },
+      },
+      {
+        context:['/newjersey'],
+        target: 'https://www.cnblogs.com/newjersey',
+        secure:true ,//接受对方是https的接口
+        changeOrigin: true,
+        pathRewrite: { '^/newjersey': '' },
       }
     ],
 

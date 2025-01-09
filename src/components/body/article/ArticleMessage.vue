@@ -9,7 +9,7 @@
       <div class="message-body-warp" v-if="messageList&&messageList.length>0">
         <div v-for="item in messageList" class="body-item">
           <div class="avatar-img">
-            <img :src="item.avatarHdUrl" :onerror="'this.src=\''+item.avatarUrl+'\';this.onerror=null;'" @click="openCommenter(item.authorUrl)">
+            <img :src="item.avatarHdUrl" @click="openCommenter(item.authorUrl)">
           </div>
           <div class="message-desc">
             <div class="message-desc-bar" @click="openCommenter(item.authorUrl)">
@@ -64,16 +64,16 @@
         pageNum: 1,
         messageList: [],
         messageCount: 0,
-        messageCurrent: -1
+        messageCurrent: 1
       }
     },
     watch: {
       articleId: function () {
-        this.initMyCommentList(this.articleId, -1);
+        this.initMyCommentList(this.articleId, 1);
       },
     },
     created: function () {
-      this.initMyCommentList(this.articleId, -1);
+      this.initMyCommentList(this.articleId, 1);
       this.$bus.on("commentCommitEvent",()=>{
         this.initMyCommentList(this.articleId, -1);
       });
@@ -117,10 +117,13 @@
         this.$bus.emit("barLoadingOpen");
         blogApi.loadMyCommentList(articleId, pageNum).then((data) => {
           this.messageList.splice(0,this.messageList.length);
-          data.list.each((i,e)=>{
+            console.log(data)
+            data.list.forEach(e => {
             e.desc=emoji.parseText(e.desc);
             this.messageList.push(e);
           });
+          
+          
           this.messageCount = parseInt(data.count);
           this.messageCurrent = parseInt(data.current);
           this.$bus.emit("barLoadingClose");

@@ -120,8 +120,8 @@ export default {
       /*设置对应值*/
       let setDataFunc = (dataList) => {
         this.arrList = blogKit.convertSubjectUrls(dataList.list);
-        // this.title=dataList.title;
-        // this.pageList=dataList.pageList;
+        this.title=dataList.title;
+        this.pageList=dataList.pageList;
         this.$bus.emit("fullLoadingClose");
       }
       /*初始化目录*/
