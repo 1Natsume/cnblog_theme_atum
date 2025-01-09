@@ -5,6 +5,9 @@
       <menu-items menu-identify="1" menu-title="导航" :menu-list="mainExtNav"></menu-items>
       <menu-items menu-identify="2" menu-title="组成" :menu-list="funcMenuNav"></menu-items>
     </div>
+    <div class="panel-aside-img" :style="'background-image: url('+img+');'">
+      
+    </div>
     <div class="panel-aside-bottom">
       <div class="blog-menu-bar panel-aside-color">
         <div @click="openManage">
@@ -32,6 +35,7 @@
   import BlogContext from "../../context/BlogContext";
   import blogApi from "../../utils/BlogApi";
   import blogKit from "../../utils/BlogKit";
+  import img from "../../assets/Natsume.png";
   let friendList = Object.assign([{title:'C君博客',url:'https://www.cnblogs.com/cjunn/'}], BlogContext.blogFriendList);
   export default {
     name: "PanelAside",
@@ -40,7 +44,7 @@
       return {
         mainExtNav: BlogContext.mainExtNav,
         funcMenuNav: [],
-
+        img: img
       }
     },
     methods:{
