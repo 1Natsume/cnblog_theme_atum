@@ -14,6 +14,7 @@ let convertSubjectUrls=(list) => {
   list=$(list);
   list.each((i, v) => {
     v.url = (v.url || "").replace(new RegExp("https://www.cnblogs.com/.+?/"), process.env.VUE_CTX+"/subject/");
+    
   });
   return list;
 }

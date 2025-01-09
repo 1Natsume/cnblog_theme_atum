@@ -8,12 +8,12 @@
       </div>
       <div class="wrapper-md" id="post-panel">
         <div class="article-list-wrap blog-post">
-          <div v-for="(item, key) in arrList" :key="key" class="panel item-wrap">
-            <!-- <div class="index-post-img"><router-link :to="item.url">
-                <div class="item-thumb lazy"
-                  style="background-image: url(https://moe.best/usr/uploads/2023/07/2045095716.png)"></div>
+          <div v-for="(item, key) in arrList" :key="key" :class="item.isTop == true?'panel-small item-wrap':'panel item-wrap'">
+            <div :class="item.isTop == true?'index-img-small':'index-post-img'"><router-link :to="item.url">
+                <div :class="item.isTop == true?'item-thumb-small lazy':'item-thumb lazy'"
+                  :style="'background-image: url('+item.imgUrl+')'"></div>
               </router-link>
-            </div> -->
+            </div>
             <div class="complex-item post-meta wrapper-lg p-b-none" v-if="item.desc">
               <!-- <div class="item-img">
                 <div class="div-img" :style="getRandomImgClz()"></div>

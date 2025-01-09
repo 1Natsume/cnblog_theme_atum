@@ -69,16 +69,18 @@
     },
     watch: {
       articleId: function () {
+        this.articleId = String(this.articleId).replace('.html','')
         this.initMyCommentList(this.articleId, 1);
       },
     },
     created: function () {
+      this.articleId = String(this.articleId).replace('.html','')
       this.initMyCommentList(this.articleId, 1);
       this.$bus.on("commentCommitEvent",()=>{
-        this.initMyCommentList(this.articleId, -1);
+        this.initMyCommentList(this.articleId, 1);
       });
       this.$bus.on("commentUpdateEvent",()=>{
-        this.initMyCommentList(this.articleId, -1);
+        this.initMyCommentList(this.articleId, 1);
       });
     },
     methods: {
@@ -97,7 +99,7 @@
       },
 
       delComment: function (commentId) {
-        blogApi.deleteComment(commentId).then(this.commentOpeEvent);
+        blogApi.deleteComment(commentId,0,this.articleId).then(this.commentOpeEvent);
       },
       updateComment:function(commentId){
         this.$emit('noticeUpdateEvent',commentId);

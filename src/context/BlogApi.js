@@ -355,10 +355,18 @@ let api = {
         for (let i=0;i<blockSize;i++){
           let obj = {};
           obj.archiveTime=archiveTime;
+          obj.isTop = $(v).hasClass('pinned');
           let postTitle=$(v).find(".postTitle").eq(i);
-          obj.title = postTitle.find("a span").text().trim();
+          obj.title = postTitle.find("a span").text().trim().replace("[置顶]","").replace(" [置顶]","");
           obj.url = postTitle.find("a").attr("href");
           let postCon=$(v).find(".postCon");
+          if($(v).find(".desc_img").length>0){
+            obj.imgUrl = $(v).find(".desc_img")[0]['attributes'][0].value.replace('https://img2023.cnblogs.com/','/img/');
+          }
+          else{
+            obj.imgUrl =''
+          }
+          
           postCon.find(".c_b_p_desc a").remove();
           obj.desc = postCon.find(".c_b_p_desc").html().trim();
           let postDesc=$(v).find(".postDesc");

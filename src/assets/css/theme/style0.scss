@@ -386,9 +386,9 @@ a {
 
   #post-panel>div.blog-post>.panel .post-meta {
       position: relative;
-      //margin-top: -300px;
+      margin-top: -300px;
       height: 300px;
-      //padding-top: 133px !important;
+      padding-top: 133px !important;
       padding-bottom: 0 !important;
       background-color: rgba(0, 0, 0, .3);
       color: #fff !important;
@@ -441,7 +441,7 @@ a {
   #post-panel>div.blog-post>.panel .post-meta>.summary {
       position: absolute;
       bottom: 60px;
-      width: 740px
+      width: 740px;
   }
 
   #post-panel>div.blog-post>.panel-small .post-meta>.summary {
@@ -464,12 +464,13 @@ a {
 
   #post-panel>div.blog-post>.panel-small .post-meta {
       position: absolute;
-      height: 300px;
-      width: calc(50% - 10px);
+      margin-top: -300px;
+      height: 167px;
+      width: calc(50% - 50px);
       padding: 133px 20px 0 20px !important;
       background-color: rgba(0, 0, 0, .3);
       color: #fff !important;
-      transition: all .3s
+      transition: all .3s;
   }
 
   #post-panel>div.blog-post>.panel-small:hover .post-meta,
