@@ -290,18 +290,19 @@
   }
 
   .panel-aside-img {
-    margin-top: 400px;
+    position: absolute;
+    bottom: 0;
     background-size: cover;
     /* 背景图片覆盖整个元素 */
     background-repeat: no-repeat;
     /* 背景图片不重复 */
     background-position: center;
     /* 背景图片居中 */
-    width: 220px;
+    width: 100%;
     /* 元素宽度 */
-    height: 800px;
+    height: 100%;
     /* 元素高度 */
-
+    z-index: -1;
   }
   
   #post-panel>div.blog-post>.panel:not(.b-a),
@@ -329,7 +330,7 @@
 
   .panel {
     margin-bottom: 20px;
-    background-color: #fff;
+    //background-color: #fff;
     border: 1px solid transparent;
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -447,11 +448,11 @@
       position: relative;
       margin-top: -300px;
       height: 300px;
-      padding-top: 133px !important;
+      //padding-top: 133px !important;
       padding-bottom: 0 !important;
       background-color: rgba(0, 0, 0, .3);
       color: #fff !important;
-      transition: all .3s
+      transition: all .3s;
     }
 
     #post-panel>div.blog-post>.panel .post-meta,
@@ -467,7 +468,7 @@
     #post-panel>div.blog-post>.panel .post-meta>h2,
     #post-panel>div.blog-post>.panel-small .post-meta>h2 {
       text-align: center;
-      text-shadow: 0 0 3px #fff
+      text-shadow: 0 0 3px #fff;
     }
 
     #post-panel>div.blog-post>.panel .post-meta>div,
@@ -547,7 +548,8 @@
 
     #post-panel>div.blog-post>.panel-small:hover .post-meta,
     #post-panel>div.blog-post>.panel:hover .post-meta {
-      padding-top: 80px !important
+      padding-top: 80px !important;
+      
     }
 
     #post-panel .ahover {

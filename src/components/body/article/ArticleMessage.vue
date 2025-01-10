@@ -119,7 +119,6 @@
         this.$bus.emit("barLoadingOpen");
         blogApi.loadMyCommentList(articleId, pageNum).then((data) => {
           this.messageList.splice(0,this.messageList.length);
-            console.log(data)
             data.list.forEach(e => {
             e.desc=emoji.parseText(e.desc);
             this.messageList.push(e);

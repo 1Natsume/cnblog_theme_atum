@@ -3,7 +3,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -66,30 +65,6 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      // {
-      //   test: /\.css$/,
-      //   // use: extractTextPlugin.extract({
-      //   //     fallback: 'style-loader',
-      //   //     use: [
-      //   //         {
-      //   //             loader: 'css-loader',
-      //   //             options: {
-      //   //                 url: false
-      //   //             }
-      //   //         }
-      //   //     ]
-      //   // })
-      //   use: [
-      //     miniCssExtractPlugin.loader,
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         url: false
-      //       }
-      //     }
-      //   ],
-      //   include: ['node build/dev-serve.js']
-      // }
     ]
   }
   // node: {

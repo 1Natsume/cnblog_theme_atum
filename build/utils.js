@@ -2,6 +2,7 @@
 const path = require('path')
 const config = require('../config')
 //const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const packageConfig = require('../package.json')
 
 exports.assetsPath = function (_path) {
@@ -49,6 +50,7 @@ exports.cssLoaders = function (options) {
       //   use: loaders,
       //   fallback: 'vue-style-loader'
       // })
+
       return ['vue-style-loader'].concat(loaders)
     } else {
       return ['vue-style-loader'].concat(loaders)
@@ -66,8 +68,8 @@ exports.cssLoaders = function (options) {
         loader: 'sass-resources-loader',
         options: {
           resources: [
-            path.resolve(__dirname, '../src/components/scss/global.scss'),
-            path.resolve(__dirname, '../src/components/scss/deve.scss')]
+            path.resolve(__dirname, '../src/assets/scss/global.scss'),
+            path.resolve(__dirname, '../src/assets/scss/deve.scss')]
         }
       }),
     stylus: generateLoaders('stylus'),

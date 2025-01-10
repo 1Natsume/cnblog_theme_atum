@@ -45,6 +45,7 @@
   import PopList from "./PopList";
   import blogApi from "../../utils/BlogApi";
   import BlogContext from "../../context/BlogContext";
+  import audio from '../../utils/Audio'
 
   export default {
     name: "MusicPlayer",
@@ -146,6 +147,7 @@
         } else {
           this.musicPlay(this.playList[this.playing.index + 1]);
         }
+        
       },
 
       musicSetInfo: function (item) {
@@ -160,15 +162,16 @@
       musicPlay: function (item) {
         try {
           this.audio.src = item.url;
-          this.audio.play();
-          this.musicSetInfo(item);
-          this.isPlay = true;
-          if(this.delayTime>0){
-            clearTimeout(this.delayTime);
-            this.delayTime=0;
-          }
+          //this.audio.play();
+          audio.rondom(this.audio)
+          // this.musicSetInfo(item);
+          // this.isPlay = true;
+          // if(this.delayTime>0){
+          //   clearTimeout(this.delayTime);
+          //   this.delayTime=0;
+          // }
         } catch (e) {
-          this.musicError();
+          //this.musicError();
         }
 
       },

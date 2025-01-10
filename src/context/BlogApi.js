@@ -131,7 +131,6 @@ let api = {
   //加载标签云
   apiLoadCloudLabel:($,param,url)=>{
     //{name,url}
-    console.log(url)
     return remoteCallByHtml($,url,(dom)=>{
       return dom.find("#taglist td a").map((i, v) => {
         let name=$(v).html();
