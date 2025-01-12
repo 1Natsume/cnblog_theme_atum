@@ -5,7 +5,7 @@
       <div class="menu-item-title">{{menuTitle}}</div>
       <div class="menu-item-area">
         <form>
-          <div v-for="(item,id) in menuList" class="item-row panel-aside-color">
+          <div v-for="(item,id) in menuList" class="item-row">
             <input name="func-radio-item" type="radio" :id="'func-radio-item_'+menuIdentify+'_'+id"
                    class="func-radio"
                    onclick="let wrap=this.closest('form');if(this.id==wrap.lastMenuId){this.checked=false;wrap.lastMenuId='undefined';return;};wrap.lastMenuId=this.id"/>

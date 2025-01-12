@@ -37,6 +37,7 @@
                   @clickItem="clickItem"></pop-list>
       </transition>
     </div>
+    <div id="music_player_lrc"></div>
   </div>
 </template>
 
@@ -78,6 +79,7 @@
         },
         playList: [],
         showPlay: false,
+        lrc:[],
         cssStyle: {
           maxTitleWidth: 130,
           titleWidth: 130,
@@ -112,12 +114,17 @@
       },
       musicUpdate: function (even) {
         this.cssStyle.barWidth = ((this.audio.currentTime / this.audio.duration) * this.cssStyle.barMaxWidth).toFixed(0);
+        if(this.audio.currentTime / this.audio.duration>0){
+          document.getElementById("music_player_lrc").textContent = audio.getIndex(this.lrc,this.audio);
+        }
+        
+        
       },
       musicError: function (even) {
-        blogUtils.showInfoMsg('播放失败,5秒后自动切换下一首');
-        this.delayTime=setTimeout(()=>{
-          this.musicPlayPos();
-        },5000);
+        // blogUtils.showInfoMsg('播放失败,5秒后自动切换下一首');
+        // this.delayTime=setTimeout(()=>{
+        //   this.musicPlayPos();
+        // },5000);
       },
       musicCanplay: function (even) {
       },
@@ -126,6 +133,8 @@
         if (this.playing.url) {
           this.isPlay = !this.isPlay;
           if (this.isPlay) {
+            this.audio.crossOrigin = 'anonymous';
+            audio.rondom(this.audio)
             this.audio.play();
           } else {
             this.audio.pause();
@@ -158,20 +167,25 @@
         let calTitleWidth = blogUtils.getTextWidth(this.playing.name, this.cssStyle.fontSize);
         calTitleWidth > this.cssStyle.maxTitleWidth ? this.cssStyle.titleWidth = calTitleWidth : this.cssStyle.titleWidth = this.cssStyle.maxTitleWidth;
         this.$refs.popList.setFlag(item.index);
+        blogApi.loadMusicSonglrc(item.lrc).then(res=>{
+          this.lrc = audio.loadLrl(res)
+        })
+        
       },
       musicPlay: function (item) {
         try {
+          this.audio.crossOrigin = 'anonymous';
           this.audio.src = item.url;
-          //this.audio.play();
           audio.rondom(this.audio)
-          // this.musicSetInfo(item);
-          // this.isPlay = true;
-          // if(this.delayTime>0){
-          //   clearTimeout(this.delayTime);
-          //   this.delayTime=0;
-          // }
+          this.audio.play();
+          this.musicSetInfo(item);
+          this.isPlay = true;
+          if(this.delayTime>0){
+            clearTimeout(this.delayTime);
+            this.delayTime=0;
+          }
         } catch (e) {
-          //this.musicError();
+          this.musicError();
         }
 
       },
@@ -193,6 +207,13 @@
       width: 100%;
       text-align: center;
       box-sizing: border-box;
+    }
+    #music_player_lrc{
+      position: fixed;
+      top:10px;
+      left: 50%;
+      font-size: 15px;
+      color: #fff;
     }
     .music-player-out-wrap {
       position: relative;

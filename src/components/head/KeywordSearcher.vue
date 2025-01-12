@@ -6,7 +6,7 @@
           <span class="icon iconfont -search"></span>
         </div>
     </div>
-    <div class="keyword-searcher-shade head-back-color">sssssssssss</div>
+    <div class="keyword-searcher-shade head-back-color"></div>
     <transition name="trans">
       <pop-list class="pop-list" :pop-list="list" v-show="isShow"></pop-list>
     </transition>

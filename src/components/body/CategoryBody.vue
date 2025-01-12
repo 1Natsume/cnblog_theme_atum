@@ -25,9 +25,9 @@
               <p class="summary l-h-2x text-muted">{{ item.desc }}</p>
               <div class="line line-lg b-b b-light"></div>
               <div class="text-muted post-item-foot-icon">
-                <i class="fontello fontello-clock-o text-muted"></i><span>&nbsp;{{ item.time }}</span>
-                <i class="iconfont icon-comments-o text-muted"></i>&nbsp;{{ item.commentNum }} 条评论
-                <i class="fontello fontello-eye text-muted"></i>&nbsp;{{ item.readNum }}<span class="hidden-xs"> 次浏览</span>
+                <i class="icon iconfont ios-shijian text-muted"></i><span>&nbsp;{{ item.time }}</span>
+                <i class="icon iconfont talk text-muted"></i>&nbsp;{{ item.commentNum }} 条评论
+                <i class="icon iconfont see text-muted"></i>&nbsp;{{ item.readNum }}<span class="hidden-xs"> 次浏览</span>
               </div>
               <!-- <div class="item-body">
                 <div class="item-title sing-ellipsis panel-item-title-color" :title="item.title">{{ item.title }}</div>

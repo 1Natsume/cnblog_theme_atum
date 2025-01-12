@@ -1,5 +1,5 @@
 <template>
-  <div id="panel_aside" class="panel-aside-back-color">
+  <div id="panel_aside" class="panel-aside-back-color panel-aside-color">
     <div class="panel-aside-wrap none-base-scroll">
       <avatar-area></avatar-area>
       <menu-items menu-identify="1" menu-title="导航" :menu-list="mainExtNav"></menu-items>

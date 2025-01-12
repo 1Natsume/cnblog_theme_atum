@@ -1,6 +1,6 @@
 <template>
   <div id="blog" :class="config.theme">
-    <div id="app" class="body-pic" :style="bgImg()">
+    <div id="app">
       <router-view />
     </div>
   </div>
@@ -25,15 +25,7 @@ export default {
   methods: {
     themeStyle:()=>{
       return null
-    },
-    bgImg: () => {
-      return {
-        background:
-          "url(" +
-          BlogContext.bigBackImg +
-          ") 0% 0% / 100% 100% rgb(248, 248, 255)",
-      };
-    },
+    }
   },
 };
 </script>

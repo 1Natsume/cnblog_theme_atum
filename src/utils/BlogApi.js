@@ -13,6 +13,13 @@ let blogApi = {
         .replace(":r", Math.random())
     );
   },
+  loadMusicSonglrc: (url) => {
+    return request.get(url).then((res) => {
+      return res
+    });
+    
+   
+  },
   loadMusicPlayList: (id) => {
     return BlogContext.apiLoadMusicPlayList(
       $,

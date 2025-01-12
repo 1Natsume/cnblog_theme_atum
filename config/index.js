@@ -55,13 +55,6 @@ module.exports = {
         secure:true ,//接受对方是https的接口
         changeOrigin: true,
         pathRewrite: { '^/newjersey': '' },
-      },
-      {
-        context:['/img'],
-        target: 'https://img2023.cnblogs.com/',
-        secure:true ,//接受对方是https的接口
-        changeOrigin: true,
-        pathRewrite: { '^/img': '' },
       }
     ],
 
