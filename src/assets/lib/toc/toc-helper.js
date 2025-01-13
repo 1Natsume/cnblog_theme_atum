@@ -330,7 +330,7 @@ TocHelper.prototype = {
       index = offsets.findIndex(el => Number(el) > top)
 
     let tocLink = targets[index];
-
+    console.log(tocLink)
     tocLink && (this.setActive(tocLink))
   },
   getOffsetY: function (el, stopParent = body) {
@@ -477,7 +477,6 @@ TocHelper.prototype = {
     return elements
   },
   setActive: function (el) {
-
     let active = this.active,
       classList = active ? active.classList : []
 

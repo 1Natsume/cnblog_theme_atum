@@ -35,9 +35,9 @@ let github = "cjunn";
 let defHeadImg= `https://img2.baidu.com/it/u=1129333932,2974296147&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500`;
 let feelingBlogId=13393903;
 let mainExtNav = [
-  {title: "首页",url:"/subject/category/default.html",icon: "home"},
-  {title: "反馈", url: '/c/subject/p/12494785.html', icon: "bug"},
-  {title: "赞赏", url: '/c/subject/p/12495086.html', icon: "gift"},
+  {title: "首页",url:"/subject/category/default.html",icon: "fc-lol-huli fc-icon-xiao"},
+  {title: "反馈", url: '/c/subject/p/12494785.html', icon: "icon iconfont bug"},
+  {title: "赞赏", url: '/c/subject/p/12495086.html', icon: "icon iconfont gift"},
   {title: "后台", url: '/admin', icon: "gift"}
 ];
 

@@ -19,34 +19,34 @@ function visualize(audio) {
     dataArray = new Uint8Array(bufferLength);//8位无符号定长数组
   }
   //part5: 动态监听
+  function renderFrame() {
+    requestAnimationFrame(renderFrame);//方法renderFrame托管到定时器，无限循环调度，频率<16.6ms/次
 
+    if (AudCtx) {
+      analyser.getByteFrequencyData(dataArray);//获取当前时刻的音频数据
+      //part6: 绘画声压条
+      for (var i = 0; i < bufferLength / 16; i++) {
+        
+        var data = dataArray[i];//int,0~255
 
+        let barHeight = dataArray[i * 16];
+        const [r, g, b] = [255 - Math.random() * barHeight, Math.random() * barHeight, 120]
 
-}
+        let color = `rgb(${r}, ${g}, ${b})`
 
-function renderFrame() {
-  requestAnimationFrame(renderFrame);//方法renderFrame托管到定时器，无限循环调度，频率<16.6ms/次
+        // const frequency = data; // 选择频率数据中的一个值
+        // const color = `rgb(255, ${frequency}, ${frequency})`; // 简单起见，我们用红色通道表示频率
 
-  if (AudCtx) {
-    analyser.getByteFrequencyData(dataArray);//获取当前时刻的音频数据
-    //part6: 绘画声压条
-    for (var i = 0; i < bufferLength / 16; i++) {
-      $('.panel').style = null;
-      var data = dataArray[i];//int,0~255
+        $('.panel-small').css('background-color', color);
 
-      let barHeight = dataArray[i * 16];
-      const [r, g, b] = [255 - Math.random() * barHeight, Math.random() * barHeight, 120]
-
-      let color = `rgb(${r}, ${g}, ${b})`
-
-      // const frequency = data; // 选择频率数据中的一个值
-      // const color = `rgb(255, ${frequency}, ${frequency})`; // 简单起见，我们用红色通道表示频率
-
-      $('.panel').css('background-color', color);
-
+      }
     }
   }
+  renderFrame();
+
 }
+
+
 function parseTime(lrcTime) {
   let lrcTimeArr = lrcTime.split(":");
   return lrcTimeArr[0] * 60 + +lrcTimeArr[1];
@@ -57,7 +57,7 @@ let audio = {
 
 
     visualize(dom);
-    renderFrame();
+
   },
   loadLrl: function (lrc) {
     // 最开始获取到的歌词列表是字符串类型（不好操作）
@@ -77,14 +77,14 @@ let audio = {
     return result
   },
   // 获取当前播放到的歌词的下标
-  getIndex(result,audio,) {
+  getIndex(result, audio,) {
     let Time = audio.currentTime;
     for (let i = 0; i < result.length; i++) {
       if (result[i].time > Time) {
         return result[i - 1].word;
       }
     }
-    
+
   }
 }
 export default audio;

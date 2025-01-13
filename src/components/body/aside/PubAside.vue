@@ -33,7 +33,6 @@
         </div>
         <aside-info-page></aside-info-page>
         <blog-cloud-page></blog-cloud-page>
-
       </div>
       <div class="pub-body-comment" v-show="selectItem==2">
         <div>
@@ -54,9 +53,11 @@
       </div>
       <div class="pub-body-menulist" v-show="selectItem==3">
         <blog-cloud-ad></blog-cloud-ad>
-        <blog-navicat-page></blog-navicat-page>
+        
       </div>
+      
     </div>
+    <blog-navicat-page></blog-navicat-page>
   </div>
 </template>
 

@@ -27,12 +27,12 @@
         created: function () {
             let self = this;
             this.$bus.on("articleDestroy", (dom) => {
-                $("#blog_cloud_ad").show();
+                //$("#blog_cloud_ad").show();
                 $("#toc_page").empty();
             });
             /*监听生成目录*/
             this.$bus.on("articleInited", function (dom) {
-                $("#blog_cloud_ad").hide();
+                //$("#blog_cloud_ad").hide();
                 $(dom).attr("data-toc", "#toc_page");
                 if ($("#app div[data-toc]").length == 0) {
                     return;
@@ -64,7 +64,8 @@
                 $(".toc-nav").css("max-height", ($(".body-wrap").height() - 140) + "px");
                 self.$bus.on("panelScrollEven", (e) => {
                     let tocPage = $(".blog-navicat-page");
-                    if (e.target.scrollTop > 60) {
+                    let height = $(".pub-head").height()+$(".pub-body").height()
+                    if (e.target.scrollTop > height) {
                         topBtnDom.removeClass("topBtnDown");
                         tocPage.css("position", "fixed");
                         tocPage.css("top", "60px");

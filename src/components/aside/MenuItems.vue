@@ -12,7 +12,7 @@
             <label :for="'func-radio-item_'+menuIdentify+'_'+id">
               <div class="parent-item-wrap" @click="clickItem(item.url)">
                 <div class="icon-wrap">
-                  <span class="icon iconfont" :class="item.icon"></span>
+                  <span :class="item.icon"></span>
                 </div>
                 <div class="title-wrap">
                   <span>{{item.title}}</span>

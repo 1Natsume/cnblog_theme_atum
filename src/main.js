@@ -4,9 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueBus from 'vue-bus';
-import './assets/icon/iconfont.css'
+import './assets/fonts/icon/iconfont.css'
 import "./assets/css/reset.css"
-import "./assets/fontawesome/css/fontawesome.min.css";
+import "./assets/fonts/lol/fclol.css"
 import store from './store'
 
 

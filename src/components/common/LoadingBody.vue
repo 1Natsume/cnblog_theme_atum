@@ -18,7 +18,7 @@
       </transition>
     </div>
     <transition name="fade" v-on:after-leave="afterLeave">
-      <div class="loading-screen-back" v-if="isShade">111</div>
+      <div class="loading-screen-back" v-if="isShade"></div>
     </transition>
   </div>
 </template>

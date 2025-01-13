@@ -77,7 +77,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, "../dist/releases"),
     assetsSubDirectory: version,
-    assetsPublicPath: "https://cjunn.gitee.io/blog_theme_atum/",
+    assetsPublicPath: "../../",
 
     /**
      * Source Maps

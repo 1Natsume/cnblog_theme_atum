@@ -121,10 +121,10 @@
         
       },
       musicError: function (even) {
-        // blogUtils.showInfoMsg('播放失败,5秒后自动切换下一首');
-        // this.delayTime=setTimeout(()=>{
-        //   this.musicPlayPos();
-        // },5000);
+        blogUtils.showInfoMsg('播放失败,5秒后自动切换下一首');
+        this.delayTime=setTimeout(()=>{
+          this.musicPlayPos();
+        },5000);
       },
       musicCanplay: function (even) {
       },
